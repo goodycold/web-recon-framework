@@ -1,3 +1,4 @@
+
 # Web Recon Automation Framework — Development Notes
 
 ## Target Input Module
@@ -523,3 +524,89 @@ This keeps HTTP reconnaissance focused on one responsibility and allows
 the module to be tested independently before integration.
 
 
+## SSL/TLS Reconnaissance Module
+
+### Status
+
+Completed
+
+### Objective
+
+Collect publicly available SSL/TLS certificate information for the target
+domain.
+
+### Information Collected
+
+- TLS version
+- Certificate subject
+- Certificate issuer
+- Certificate validity start date
+- Certificate validity expiration date
+- Certificate serial number
+
+### Library
+
+Python standard library:
+- ssl
+- socket
+
+### Test Command
+
+python3 modules/ssl_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The SSL/TLS module successfully retrieved certificate information.
+
+TLS Version:
+
+TLSv1.3
+
+Subject:
+
+commonName=example.com
+
+Issuer:
+
+countryName=US, organizationName=SSL Corporation, commonName=Cloudflare TLS Issuing ECC CA 3
+
+Valid From:
+
+Jul 29 22:10:08 2026 GMT
+
+Valid Until:
+
+Oct 27 22:17:21 2026 GMT
+
+Serial Number:
+
+0624D0AB311558780B7D5213B9631831
+
+### Error Handling
+
+The module handles:
+
+- DNS resolution failures
+- Connection failures
+- SSL/TLS connection errors
+- Certificate retrieval errors
+
+The module reports failures without crashing the framework.
+
+### Design
+
+SSL/TLS functionality is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps the certificate reconnaissance functionality independent,
+testable, and reusable.
+
+### Conclusion
+
+The SSL/TLS reconnaissance module successfully retrieves basic certificate
+information from the target domain and is ready for integration with the
+main framework.
