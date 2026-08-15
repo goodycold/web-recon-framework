@@ -723,3 +723,67 @@ The framework can now perform DNS, WHOIS, IP/geolocation, HTTP header,
 and SSL/TLS reconnaissance using a single command.
 
 
+## Technology Detection Module
+
+### Status
+
+Completed
+
+### Objective
+
+Identify basic technology indicators exposed by the target web server.
+
+### Information Collected
+
+- Web server
+- X-Powered-By header
+- Content-Type
+- Final URL
+- HTTP status code
+
+### Library
+
+requests
+
+### Test Command
+
+python3 modules/tech_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The Technology Detection module successfully connected to the target
+and identified publicly exposed technology indicators.
+
+Final URL:
+
+https://example.com/
+
+Status Code:
+
+200
+
+Detected Technologies:
+
+- Server: cloudflare
+- Content-Type: text/html
+
+### Error Handling
+
+The module handles HTTP request failures without crashing the framework.
+
+If the target cannot be reached, the module reports that technology
+information is unavailable.
+
+### Design
+
+Technology detection is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps technology identification focused on one responsibility and
+allows the module to be tested independently before integration.
+
+
