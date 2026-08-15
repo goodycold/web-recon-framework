@@ -7,6 +7,7 @@ from modules.http_recon import get_http_headers, display_results as display_http
 from modules.ssl_recon import get_ssl_certificate, display_results as display_ssl_results
 from modules.tech_recon import get_technologies, display_results as display_tech_results
 from modules.subdomain_recon import get_subdomains, display_results as display_subdomain_results
+from modules.robots_recon import get_robots, display_results as display_robots_results
 
 
 def main():
@@ -67,6 +68,12 @@ def main():
 
     subdomains = get_subdomains(target)
     display_subdomain_results(subdomains)
+
+    # Robots.txt Reconnaissance
+    print("\n[+] Starting robots.txt reconnaissance...")
+
+    robots_results = get_robots(target)
+    display_robots_results(robots_results)
 
 
 if __name__ == "__main__":
