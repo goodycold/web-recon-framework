@@ -362,7 +362,89 @@ module instead of being placed directly inside `recon.py`.
 This keeps the module focused on one responsibility and allows it to
 be tested independently before integration with the main framework.
 
+## Framework Integration — DNS, WHOIS & IP Reconnaissance
+
+### Status
+
+Completed
+
+### Objective
+
+Integrate the DNS, WHOIS, and IP Address & Geolocation modules into the
+main framework so the user only needs to provide the target domain once.
+
+### Test Command
+
+python3 recon.py example.com
+
+### Test Result
+
+The main framework successfully accepted `example.com` as the target and
+automatically executed all three reconnaissance modules.
+
+The framework successfully performed:
+
+- DNS reconnaissance
+- WHOIS reconnaissance
+- IP address resolution
+- Basic IP geolocation
+
+### DNS Results
+
+The framework successfully queried:
+
+- A records
+- AAAA records
+- MX records
+- NS records
+- TXT records
+- CNAME records
+
+### WHOIS Results
+
+The framework successfully retrieved:
+
+- Domain name
+- Registrar
+- Creation date
+- Expiration date
+- Name servers
+
+### IP & Geolocation Results
+
+The framework successfully retrieved:
+
+- IP address
+- Country
+- Region
+- City
+- Organization
+- Timezone
+
+### Example Output
+
+IP Address:
+
+- 104.20.23.154
+
+Geolocation:
+
+- Country: US
+- Region: California
+- City: San Francisco
+- Organization: AS13335 Cloudflare, Inc.
+- Timezone: America/Los_Angeles
+
+### Conclusion
+
+The DNS, WHOIS, and IP Address & Geolocation modules are now
+successfully integrated into the main `recon.py` framework.
+
+The framework can perform multiple reconnaissance tasks using a single
+command:
+
+python3 recon.py example.com
+
 ### Next Task
 
-Integrate the IP Address & Geolocation module with the main
-`recon.py` framework.
+Implement the HTTP Response Headers reconnaissance module.
