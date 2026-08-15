@@ -155,6 +155,79 @@ The DNS reconnaissance module is now integrated with the main
 
 The framework can now perform DNS reconnaissance using a single command.
 
+
+## WHOIS Reconnaissance Module
+
+### Status
+
+Completed
+
+### Objective
+
+Collect publicly available WHOIS information for the target domain.
+
+### Information Collected
+
+- Domain name
+- Registrar
+- Creation date
+- Expiration date
+- Name servers
+
+### Library
+
+python-whois
+
+### Test Command
+
+python3 modules/whois_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The WHOIS module successfully retrieved publicly available registration
+information.
+
+Domain Name:
+
+EXAMPLE.COM
+
+Registrar:
+
+RESERVED-Internet Assigned Numbers Authority
+
+Creation Date:
+
+1995-08-14 04:00:00+00:00
+
+Expiration Date:
+
+2027-08-13 04:00:00+00:00
+
+Name Servers:
+
+- ELLIOTT.NS.CLOUDFLARE.COM
+- HERA.NS.CLOUDFLARE.COM
+
+### Error Handling
+
+The module handles WHOIS lookup failures without crashing the framework.
+
+If WHOIS information cannot be retrieved, the module reports that the
+information is unavailable.
+
+### Design
+
+WHOIS functionality is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps the module focused on one responsibility and allows it to be
+tested independently before integration with the main framework.
+
 ### Next Task
 
-Implement the WHOIS reconnaissance module.
+Integrate the WHOIS reconnaissance module with the main `recon.py`
+framework.
