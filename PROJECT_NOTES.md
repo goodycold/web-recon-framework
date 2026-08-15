@@ -227,7 +227,46 @@ placed directly inside `recon.py`.
 This keeps the module focused on one responsibility and allows it to be
 tested independently before integration with the main framework.
 
-### Next Task
+## WHOIS Framework Integration
 
-Integrate the WHOIS reconnaissance module with the main `recon.py`
-framework.
+### Status
+
+Completed
+
+### Objective
+
+Integrate the WHOIS reconnaissance module with the main framework so
+DNS and WHOIS reconnaissance can be performed using a single command.
+
+### Test Command
+
+python3 recon.py example.com
+
+### Test Result
+
+The main framework successfully executed both DNS and WHOIS
+reconnaissance against `example.com`.
+
+The framework successfully displayed:
+
+- DNS A records
+- DNS AAAA records
+- DNS MX records
+- DNS NS records
+- DNS TXT records
+- DNS CNAME records
+- WHOIS domain name
+- WHOIS registrar
+- WHOIS creation date
+- WHOIS expiration date
+- WHOIS name servers
+
+### Conclusion
+
+The WHOIS reconnaissance module is successfully integrated with the
+main `recon.py` framework.
+
+The framework can now perform DNS and WHOIS reconnaissance using a
+single command.
+
+
