@@ -835,3 +835,82 @@ using a single command.
 ### Next Task
 
 Implement the next reconnaissance module.
+
+
+## Subdomain Reconnaissance Module
+
+### Status
+
+Completed
+
+### Objective
+
+Discover publicly known subdomains associated with the target domain using
+Certificate Transparency logs.
+
+### Information Collected
+
+- Subdomain names
+- Number of discovered subdomains
+
+### Data Source
+
+Certificate Transparency logs provided through crt.sh.
+
+### Library
+
+requests
+
+### Implementation
+
+The module queries Certificate Transparency data for certificates
+associated with the target domain.
+
+The `get_subdomains()` function retrieves and processes the certificate
+records.
+
+Wildcard entries are normalized and duplicate subdomains are removed.
+
+The `display_results()` function presents the discovered subdomains in a
+structured format.
+
+### Test Command
+
+python3 modules/subdomain_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The module successfully discovered publicly listed subdomains.
+
+Subdomains Found:
+
+- dev.example.com
+- example.com
+- m.example.com
+- products.example.com
+- support.example.com
+- www.example.com
+
+### Error Handling
+
+The module handles:
+
+- HTTP request failures
+- Certificate Transparency response errors
+- Invalid JSON responses
+- Empty results
+
+The module reports errors without crashing the framework.
+
+### Design
+
+Subdomain functionality is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps the reconnaissance functionality modular and allows the
+subdomain enumeration component to be tested independently before
+integration.
