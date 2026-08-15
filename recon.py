@@ -3,6 +3,7 @@ import sys
 from modules.dns_recon import run_dns_recon, display_results
 from modules.whois_recon import run_whois_recon, display_results as display_whois_results
 from modules.ip_recon import resolve_ip, get_geolocation, display_results as display_ip_results
+from modules.http_recon import get_http_headers, display_results as display_http_results
 
 
 def main():
@@ -39,6 +40,12 @@ def main():
         display_ip_results(ip_address, location)
     else:
         print("[!] Could not resolve IP address.")
+
+    # HTTP Response Headers Reconnaissance
+    print("\n[+] Starting HTTP response headers reconnaissance...")
+
+    http_results = get_http_headers(target)
+    display_http_results(http_results)
 
 
 if __name__ == "__main__":
