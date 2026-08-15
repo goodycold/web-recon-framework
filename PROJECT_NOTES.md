@@ -610,3 +610,116 @@ testable, and reusable.
 The SSL/TLS reconnaissance module successfully retrieves basic certificate
 information from the target domain and is ready for integration with the
 main framework.
+
+
+## SSL/TLS Reconnaissance Module
+
+### Status
+
+Completed
+
+### Objective
+
+Collect publicly available SSL/TLS certificate information for the target
+domain.
+
+### Information Collected
+
+- TLS version
+- Certificate subject
+- Certificate issuer
+- Certificate validity start date
+- Certificate validity expiration date
+- Certificate serial number
+
+### Library
+
+Python standard library `ssl` and `socket`
+
+### Test Command
+
+python3 modules/ssl_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The SSL/TLS module successfully retrieved the SSL/TLS certificate
+information for the target.
+
+TLS Version:
+
+TLSv1.3
+
+Subject:
+
+commonName=example.com
+
+Issuer:
+
+countryName=US, organizationName=SSL Corporation, commonName=Cloudflare TLS Issuing ECC CA 3
+
+Valid From:
+
+Jul 29 22:10:08 2026 GMT
+
+Valid Until:
+
+Oct 27 22:17:21 2026 GMT
+
+Serial Number:
+
+0624D0AB311558780B7D5213B9631831
+
+### Error Handling
+
+The module handles SSL/TLS connection and certificate retrieval errors
+without crashing the framework.
+
+### Design
+
+SSL/TLS functionality is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps the certificate collection functionality focused on one
+responsibility and allows the module to be tested independently.
+
+## Framework Integration — SSL/TLS
+
+### Status
+
+Completed
+
+### Objective
+
+Integrate the SSL/TLS reconnaissance module with the main framework so
+the target domain only needs to be supplied once.
+
+### Test Command
+
+python3 recon.py example.com
+
+### Test Result
+
+The main framework successfully executed the SSL/TLS reconnaissance module
+after completing DNS, WHOIS, IP/geolocation, and HTTP reconnaissance.
+
+The framework successfully retrieved:
+
+- TLS version
+- Certificate subject
+- Certificate issuer
+- Certificate validity period
+- Certificate serial number
+
+### Conclusion
+
+The SSL/TLS reconnaissance module is now integrated into the main
+`recon.py` framework.
+
+The framework can now perform DNS, WHOIS, IP/geolocation, HTTP header,
+and SSL/TLS reconnaissance using a single command.
+
+
