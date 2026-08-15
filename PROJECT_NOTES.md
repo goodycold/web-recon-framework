@@ -914,3 +914,74 @@ placed directly inside `recon.py`.
 This keeps the reconnaissance functionality modular and allows the
 subdomain enumeration component to be tested independently before
 integration.
+
+
+## Robots.txt Reconnaissance Module
+
+### Status
+
+Completed
+
+### Objective
+
+Retrieve and analyze the target website's publicly accessible `robots.txt`
+file.
+
+### Information Collected
+
+- Robots.txt URL
+- HTTP status code
+- Robots.txt contents
+- Whether the file exists
+
+### Library
+
+requests
+
+### Implementation
+
+The module requests `/robots.txt` from the target domain.
+
+The `get_robots()` function retrieves the robots.txt response and stores
+the URL, HTTP status code, and response content.
+
+The `display_results()` function presents the results in a structured
+format.
+
+### Test Command
+
+python3 modules/robots_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The module successfully requested the robots.txt file.
+
+URL:
+
+https://example.com/robots.txt
+
+Status Code:
+
+404
+
+Result:
+
+Robots.txt not found.
+
+### Error Handling
+
+The module handles:
+
+- HTTP request failures
+- Connection errors
+- Request timeouts
+- Missing robots.txt files
+- Empty robots.txt files
+
+The module reports errors without crashing the framework.
+
+
