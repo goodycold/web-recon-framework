@@ -270,3 +270,99 @@ The framework can now perform DNS and WHOIS reconnaissance using a
 single command.
 
 
+## IP Address & Geolocation Module
+
+### Status
+
+Completed
+
+### Objective
+
+Resolve the target domain to an IP address and collect basic publicly
+available geolocation information for the resolved IP address.
+
+### Information Collected
+
+- IPv4 address
+- Country
+- Region
+- City
+- Organization
+- Timezone
+
+### Libraries
+
+- Python `socket`
+- `requests`
+
+### Implementation
+
+The `resolve_ip()` function resolves the target domain to an IPv4
+address using Python's socket library.
+
+The `get_geolocation()` function queries the IP geolocation service
+and retrieves basic location information for the resolved IP address.
+
+The `display_results()` function presents the collected information
+in a structured format.
+
+### Test Command
+
+python3 modules/ip_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The module successfully resolved the target domain to an IP address
+and retrieved basic geolocation information.
+
+IP Address:
+
+- 104.20.23.154
+
+Country:
+
+- US
+
+Region:
+
+- California
+
+City:
+
+- San Francisco
+
+Organization:
+
+- AS13335 Cloudflare, Inc.
+
+Timezone:
+
+- America/Los_Angeles
+
+### Error Handling
+
+The module handles:
+
+- DNS resolution failures
+- Invalid or unavailable IP addresses
+- Geolocation request failures
+- Network timeouts
+
+The module reports errors and continues without crashing.
+
+### Design
+
+IP address and geolocation functionality is separated into its own
+module instead of being placed directly inside `recon.py`.
+
+This keeps the module focused on one responsibility and allows it to
+be tested independently before integration with the main framework.
+
+### Next Task
+
+Integrate the IP Address & Geolocation module with the main
+`recon.py` framework.
