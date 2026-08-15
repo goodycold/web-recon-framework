@@ -2,6 +2,7 @@ import sys
 
 from modules.dns_recon import run_dns_recon, display_results
 from modules.whois_recon import run_whois_recon, display_results as display_whois_results
+from modules.ip_recon import resolve_ip, get_geolocation, display_results as display_ip_results
 
 
 def main():
@@ -27,6 +28,17 @@ def main():
 
     whois_results = run_whois_recon(target)
     display_whois_results(whois_results)
+
+    # IP Address & Geolocation Reconnaissance
+    print("\n[+] Starting IP address and geolocation reconnaissance...")
+
+    ip_address = resolve_ip(target)
+
+    if ip_address:
+        location = get_geolocation(ip_address)
+        display_ip_results(ip_address, location)
+    else:
+        print("[!] Could not resolve IP address.")
 
 
 if __name__ == "__main__":
