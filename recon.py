@@ -6,6 +6,7 @@ from modules.ip_recon import resolve_ip, get_geolocation, display_results as dis
 from modules.http_recon import get_http_headers, display_results as display_http_results
 from modules.ssl_recon import get_ssl_certificate, display_results as display_ssl_results
 from modules.tech_recon import get_technologies, display_results as display_tech_results
+from modules.subdomain_recon import get_subdomains, display_results as display_subdomain_results
 
 
 def main():
@@ -60,6 +61,12 @@ def main():
 
     tech_results = get_technologies(target)
     display_tech_results(tech_results)
+
+    # Subdomain Reconnaissance
+    print("\n[+] Starting subdomain reconnaissance...")
+
+    subdomains = get_subdomains(target)
+    display_subdomain_results(subdomains)
 
 
 if __name__ == "__main__":
