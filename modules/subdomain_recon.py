@@ -38,15 +38,20 @@ def get_subdomains(target):
 
     except requests.RequestException as error:
         print(f"[!] Certificate Transparency request failed: {error}")
-        return []
+        return None
 
     except ValueError:
         print("[!] Could not parse Certificate Transparency response.")
-        return []
+        return None
 
 
 def display_results(subdomains):
     print("\n========== SUBDOMAIN RESULTS ==========")
+
+    if subdomains is None:
+        print("Subdomain enumeration failed.")
+        print("Certificate Transparency data could not be retrieved.")
+        return
 
     if not subdomains:
         print("No subdomains found.")
