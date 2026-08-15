@@ -20,3 +20,33 @@ Target: example.com
 
 The framework successfully accepts a target domain from the command line
 and displays the supplied target.
+
+
+
+
+
+
+## DNS Reconnaissance Module
+
+### Status
+
+In Progress
+
+### First Component
+
+Implemented A-record lookup using the `dnspython` library.
+
+### Test Command
+
+```bash
+python3 modules/dns_recon.py
+
+
+
+test result 
+
+[*] DNS reconnaissance for: example.com
+
+A Records:
+- 172.66.147.243
+- 104.20.23.154
