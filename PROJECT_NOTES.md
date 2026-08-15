@@ -445,6 +445,81 @@ command:
 
 python3 recon.py example.com
 
-### Next Task
+## HTTP Response Headers Reconnaissance Module
 
-Implement the HTTP Response Headers reconnaissance module.
+### Status
+
+Completed
+
+### Objective
+
+Collect publicly available HTTP response information from the target
+website.
+
+### Information Collected
+
+- Final URL
+- HTTP status code
+- HTTP response headers
+- Server banner
+- Content type
+- Cache-related headers
+- Allowed HTTP methods when disclosed
+
+### Library
+
+requests
+
+### Test Command
+
+python3 modules/http_recon.py example.com
+
+### Test Target
+
+example.com
+
+### Test Result
+
+The HTTP reconnaissance module successfully connected to the target
+over HTTPS and retrieved the HTTP response information.
+
+Final URL:
+
+https://example.com/
+
+Status Code:
+
+200
+
+Example Response Headers:
+
+- Server: cloudflare
+- Content-Type: text/html
+- Transfer-Encoding: chunked
+- Connection: keep-alive
+- Last-Modified: Wed, 12 Aug 2026 20:15:57 GMT
+- Allow: GET, HEAD
+- Age: 2668
+- CF-Cache-Status: HIT
+- Content-Encoding: gzip
+
+### Error Handling
+
+The module handles:
+
+- HTTP request failures
+- Connection errors
+- Request timeouts
+- Invalid or unreachable targets
+
+The module reports the error and continues instead of crashing.
+
+### Design
+
+HTTP functionality is separated into its own module instead of being
+placed directly inside `recon.py`.
+
+This keeps HTTP reconnaissance focused on one responsibility and allows
+the module to be tested independently before integration.
+
+
