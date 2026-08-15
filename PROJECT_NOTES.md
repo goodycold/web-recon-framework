@@ -117,3 +117,44 @@ This keeps each component focused on one responsibility and makes the
 framework easier to maintain, test, and extend.
 
 
+## Framework Integration
+
+### Status
+
+Completed
+
+### Objective
+
+Integrate the DNS reconnaissance module with the main framework so the
+user only needs to provide the target domain once.
+
+### Test Command
+
+python3 recon.py example.com
+
+### Test Result
+
+The main framework successfully accepted `example.com` as the target and
+automatically executed the DNS reconnaissance module.
+
+The framework successfully queried:
+
+- A records
+- AAAA records
+- MX records
+- NS records
+- TXT records
+- CNAME records
+
+The DNS results were displayed through the main framework.
+
+### Conclusion
+
+The DNS reconnaissance module is now integrated with the main
+`recon.py` framework.
+
+The framework can now perform DNS reconnaissance using a single command.
+
+### Next Task
+
+Implement the WHOIS reconnaissance module.
