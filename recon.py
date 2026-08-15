@@ -5,6 +5,7 @@ from modules.whois_recon import run_whois_recon, display_results as display_whoi
 from modules.ip_recon import resolve_ip, get_geolocation, display_results as display_ip_results
 from modules.http_recon import get_http_headers, display_results as display_http_results
 from modules.ssl_recon import get_ssl_certificate, display_results as display_ssl_results
+from modules.tech_recon import get_technologies, display_results as display_tech_results
 
 
 def main():
@@ -53,6 +54,12 @@ def main():
 
     ssl_results = get_ssl_certificate(target)
     display_ssl_results(ssl_results)
+
+    # Technology Detection
+    print("\n[+] Starting technology detection reconnaissance...")
+
+    tech_results = get_technologies(target)
+    display_tech_results(tech_results)
 
 
 if __name__ == "__main__":

@@ -787,3 +787,51 @@ This keeps technology identification focused on one responsibility and
 allows the module to be tested independently before integration.
 
 
+## Framework Integration — Technology Detection
+
+### Status
+
+Completed
+
+### Objective
+
+Integrate the Technology Detection module with the main framework so the
+target domain only needs to be supplied once.
+
+### Test Command
+
+python3 recon.py example.com
+
+### Test Result
+
+The main framework successfully executed the Technology Detection module
+after completing DNS, WHOIS, IP/geolocation, HTTP, and SSL/TLS
+reconnaissance.
+
+The framework successfully identified publicly exposed technology
+indicators.
+
+Detected Technologies:
+
+- Server: cloudflare
+- Content-Type: text/html
+
+### Conclusion
+
+The Technology Detection module is now integrated into the main
+`recon.py` framework.
+
+The framework can now perform:
+
+- DNS reconnaissance
+- WHOIS reconnaissance
+- IP and geolocation reconnaissance
+- HTTP response headers reconnaissance
+- SSL/TLS reconnaissance
+- Technology detection
+
+using a single command.
+
+### Next Task
+
+Implement the next reconnaissance module.
