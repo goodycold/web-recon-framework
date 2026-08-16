@@ -3,9 +3,6 @@
 
 ## Target Input Module
 
-### Status
-
-Completed
 
 ### Test Command
 
@@ -14,13 +11,9 @@ python3 recon.py example.com
 ### Test Result
 
 Web Recon Automation Framework
-------------------------------
+
 Target: example.com
 
-### Conclusion
-
-The framework successfully accepts a target domain from the command line
-and displays the supplied target.
 
 
 ## DNS Reconnaissance Module
@@ -29,9 +22,6 @@ and displays the supplied target.
 
 Completed
 
-### Objective
-
-Collect publicly available DNS information for the target domain.
 
 ### DNS Records Collected
 
@@ -118,50 +108,15 @@ This keeps each component focused on one responsibility and makes the
 framework easier to maintain, test, and extend.
 
 
-## Framework Integration
 
-### Status
 
-Completed
 
-### Objective
 
-Integrate the DNS reconnaissance module with the main framework so the
-user only needs to provide the target domain once.
 
-### Test Command
-
-python3 recon.py example.com
-
-### Test Result
-
-The main framework successfully accepted `example.com` as the target and
-automatically executed the DNS reconnaissance module.
-
-The framework successfully queried:
-
-- A records
-- AAAA records
-- MX records
-- NS records
-- TXT records
-- CNAME records
-
-The DNS results were displayed through the main framework.
-
-### Conclusion
-
-The DNS reconnaissance module is now integrated with the main
-`recon.py` framework.
-
-The framework can now perform DNS reconnaissance using a single command.
 
 
 ## WHOIS Reconnaissance Module
 
-### Status
-
-Completed
 
 ### Objective
 
@@ -228,59 +183,15 @@ placed directly inside `recon.py`.
 This keeps the module focused on one responsibility and allows it to be
 tested independently before integration with the main framework.
 
-## WHOIS Framework Integration
 
-### Status
 
-Completed
 
-### Objective
 
-Integrate the WHOIS reconnaissance module with the main framework so
-DNS and WHOIS reconnaissance can be performed using a single command.
 
-### Test Command
-
-python3 recon.py example.com
-
-### Test Result
-
-The main framework successfully executed both DNS and WHOIS
-reconnaissance against `example.com`.
-
-The framework successfully displayed:
-
-- DNS A records
-- DNS AAAA records
-- DNS MX records
-- DNS NS records
-- DNS TXT records
-- DNS CNAME records
-- WHOIS domain name
-- WHOIS registrar
-- WHOIS creation date
-- WHOIS expiration date
-- WHOIS name servers
-
-### Conclusion
-
-The WHOIS reconnaissance module is successfully integrated with the
-main `recon.py` framework.
-
-The framework can now perform DNS and WHOIS reconnaissance using a
-single command.
 
 
 ## IP Address & Geolocation Module
 
-### Status
-
-Completed
-
-### Objective
-
-Resolve the target domain to an IP address and collect basic publicly
-available geolocation information for the resolved IP address.
 
 ### Information Collected
 
@@ -363,94 +274,10 @@ module instead of being placed directly inside `recon.py`.
 This keeps the module focused on one responsibility and allows it to
 be tested independently before integration with the main framework.
 
-## Framework Integration — DNS, WHOIS & IP Reconnaissance
 
-### Status
-
-Completed
-
-### Objective
-
-Integrate the DNS, WHOIS, and IP Address & Geolocation modules into the
-main framework so the user only needs to provide the target domain once.
-
-### Test Command
-
-python3 recon.py example.com
-
-### Test Result
-
-The main framework successfully accepted `example.com` as the target and
-automatically executed all three reconnaissance modules.
-
-The framework successfully performed:
-
-- DNS reconnaissance
-- WHOIS reconnaissance
-- IP address resolution
-- Basic IP geolocation
-
-### DNS Results
-
-The framework successfully queried:
-
-- A records
-- AAAA records
-- MX records
-- NS records
-- TXT records
-- CNAME records
-
-### WHOIS Results
-
-The framework successfully retrieved:
-
-- Domain name
-- Registrar
-- Creation date
-- Expiration date
-- Name servers
-
-### IP & Geolocation Results
-
-The framework successfully retrieved:
-
-- IP address
-- Country
-- Region
-- City
-- Organization
-- Timezone
-
-### Example Output
-
-IP Address:
-
-- 104.20.23.154
-
-Geolocation:
-
-- Country: US
-- Region: California
-- City: San Francisco
-- Organization: AS13335 Cloudflare, Inc.
-- Timezone: America/Los_Angeles
-
-### Conclusion
-
-The DNS, WHOIS, and IP Address & Geolocation modules are now
-successfully integrated into the main `recon.py` framework.
-
-The framework can perform multiple reconnaissance tasks using a single
-command:
-
-python3 recon.py example.com
 
 ## HTTP Response Headers Reconnaissance Module
 
-### Status
-
-Completed
 
 ### Objective
 
@@ -612,122 +439,9 @@ information from the target domain and is ready for integration with the
 main framework.
 
 
-## SSL/TLS Reconnaissance Module
-
-### Status
-
-Completed
-
-### Objective
-
-Collect publicly available SSL/TLS certificate information for the target
-domain.
-
-### Information Collected
-
-- TLS version
-- Certificate subject
-- Certificate issuer
-- Certificate validity start date
-- Certificate validity expiration date
-- Certificate serial number
-
-### Library
-
-Python standard library `ssl` and `socket`
-
-### Test Command
-
-python3 modules/ssl_recon.py example.com
-
-### Test Target
-
-example.com
-
-### Test Result
-
-The SSL/TLS module successfully retrieved the SSL/TLS certificate
-information for the target.
-
-TLS Version:
-
-TLSv1.3
-
-Subject:
-
-commonName=example.com
-
-Issuer:
-
-countryName=US, organizationName=SSL Corporation, commonName=Cloudflare TLS Issuing ECC CA 3
-
-Valid From:
-
-Jul 29 22:10:08 2026 GMT
-
-Valid Until:
-
-Oct 27 22:17:21 2026 GMT
-
-Serial Number:
-
-0624D0AB311558780B7D5213B9631831
-
-### Error Handling
-
-The module handles SSL/TLS connection and certificate retrieval errors
-without crashing the framework.
-
-### Design
-
-SSL/TLS functionality is separated into its own module instead of being
-placed directly inside `recon.py`.
-
-This keeps the certificate collection functionality focused on one
-responsibility and allows the module to be tested independently.
-
-## Framework Integration — SSL/TLS
-
-### Status
-
-Completed
-
-### Objective
-
-Integrate the SSL/TLS reconnaissance module with the main framework so
-the target domain only needs to be supplied once.
-
-### Test Command
-
-python3 recon.py example.com
-
-### Test Result
-
-The main framework successfully executed the SSL/TLS reconnaissance module
-after completing DNS, WHOIS, IP/geolocation, and HTTP reconnaissance.
-
-The framework successfully retrieved:
-
-- TLS version
-- Certificate subject
-- Certificate issuer
-- Certificate validity period
-- Certificate serial number
-
-### Conclusion
-
-The SSL/TLS reconnaissance module is now integrated into the main
-`recon.py` framework.
-
-The framework can now perform DNS, WHOIS, IP/geolocation, HTTP header,
-and SSL/TLS reconnaissance using a single command.
-
 
 ## Technology Detection Module
 
-### Status
-
-Completed
 
 ### Objective
 
@@ -787,54 +501,8 @@ This keeps technology identification focused on one responsibility and
 allows the module to be tested independently before integration.
 
 
-## Framework Integration — Technology Detection
 
-### Status
 
-Completed
-
-### Objective
-
-Integrate the Technology Detection module with the main framework so the
-target domain only needs to be supplied once.
-
-### Test Command
-
-python3 recon.py example.com
-
-### Test Result
-
-The main framework successfully executed the Technology Detection module
-after completing DNS, WHOIS, IP/geolocation, HTTP, and SSL/TLS
-reconnaissance.
-
-The framework successfully identified publicly exposed technology
-indicators.
-
-Detected Technologies:
-
-- Server: cloudflare
-- Content-Type: text/html
-
-### Conclusion
-
-The Technology Detection module is now integrated into the main
-`recon.py` framework.
-
-The framework can now perform:
-
-- DNS reconnaissance
-- WHOIS reconnaissance
-- IP and geolocation reconnaissance
-- HTTP response headers reconnaissance
-- SSL/TLS reconnaissance
-- Technology detection
-
-using a single command.
-
-### Next Task
-
-Implement the next reconnaissance module.
 
 
 ## Subdomain Reconnaissance Module

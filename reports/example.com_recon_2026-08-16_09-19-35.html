@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+Web Reconnaissance Report - example.com
+</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f8;
+    color: #202124;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 45px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+header {
+    border-bottom: 3px solid #1f2937;
+    padding-bottom: 25px;
+    margin-bottom: 35px;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+}
+
+h2 {
+    margin-top: 45px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+    color: #111827;
+}
+
+h3 {
+    margin-top: 25px;
+}
+
+.metadata {
+    margin-top: 25px;
+    padding: 18px;
+    background: #f8fafc;
+    border-left: 4px solid #374151;
+}
+
+.metadata p {
+    margin: 5px 0;
+}
+
+.summary {
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+.observation {
+    background: #f9fafb;
+    border-left: 4px solid #6b7280;
+    padding: 15px 20px;
+    margin: 12px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    border: 1px solid #e5e7eb;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    width: 30%;
+    background: #f8fafc;
+    font-weight: 600;
+}
+
+tr:nth-child(even) td {
+    background: #fcfcfd;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 6px;
+}
+
+.muted {
+    color: #6b7280;
+    font-style: italic;
+}
+
+.code {
+    font-family: monospace;
+    background: #f3f4f6;
+    padding: 3px 6px;
+    border-radius: 4px;
+}
+
+footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #d1d5db;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+@media print {
+
+    body {
+        background: white;
+    }
+
+    .container {
+        margin: 0;
+        box-shadow: none;
+        max-width: none;
+    }
+
+    section {
+        break-inside: avoid;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Web Reconnaissance Report</h1>
+
+<p>
+<strong>Target:</strong>
+example.com
+</p>
+
+<div class="metadata">
+
+<p>
+<strong>Assessment Type:</strong>
+Passive Web Reconnaissance
+</p>
+
+<p>
+<strong>Generated:</strong>
+2026-08-16 09:19:35
+</p>
+
+</div>
+
+</header>
+
+
+<section>
+
+<h2>1. Executive Summary</h2>
+
+<div class="summary">
+
+<p>
+This report presents publicly available reconnaissance information
+collected for the target domain
+<strong>example.com</strong>.
+</p>
+
+<p>
+The reconnaissance framework collected information relating to
+DNS records, domain registration, IP address and geolocation,
+HTTP responses, SSL/TLS certificates, technology indicators,
+publicly known subdomains, and web resources.
+</p>
+
+<p>
+The results provide an initial external view of the target's
+publicly observable infrastructure and web-facing characteristics.
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>2. Target Information</h2>
+
+<table>
+
+<tr>
+<th>Target</th>
+<td>example.com</td>
+</tr>
+
+<tr>
+<th>Assessment Type</th>
+<td>Passive Web Reconnaissance</td>
+</tr>
+
+<tr>
+<th>Generated</th>
+<td>2026-08-16 09:19:35</td>
+</tr>
+
+</table>
+
+</section>
+
+
+
+    <section>
+        <h2>3. DNS Reconnaissance</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>A</th>
+                <td><ul><li>104.20.23.154</li><li>172.66.147.243</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Aaaa</th>
+                <td><ul><li>2606:4700:10::ac42:93f3</li><li>2606:4700:10::6814:179a</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Mx</th>
+                <td><ul><li>0 .</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Ns</th>
+                <td><ul><li>elliott.ns.cloudflare.com.</li><li>hera.ns.cloudflare.com.</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Txt</th>
+                <td><ul><li>&quot;v=spf1 -all&quot;</li><li>&quot;_k2n1y4vw3qtb4skdx9e7dxt97qrmmq9&quot;</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Cname</th>
+                <td><span class='muted'>None found</span></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>4. WHOIS Information</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Domain Name</th>
+                <td>EXAMPLE.COM</td>
+            </tr>
+            
+            <tr>
+                <th>Registrar</th>
+                <td>RESERVED-Internet Assigned Numbers Authority</td>
+            </tr>
+            
+            <tr>
+                <th>Registrar Url</th>
+                <td>http://res-dom.iana.org</td>
+            </tr>
+            
+            <tr>
+                <th>Reseller</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Whois Server</th>
+                <td>whois.iana.org</td>
+            </tr>
+            
+            <tr>
+                <th>Referral Url</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Updated Date</th>
+                <td>2026-08-14 08:01:43+00:00</td>
+            </tr>
+            
+            <tr>
+                <th>Creation Date</th>
+                <td>1995-08-14 04:00:00+00:00</td>
+            </tr>
+            
+            <tr>
+                <th>Expiration Date</th>
+                <td>2027-08-13 04:00:00+00:00</td>
+            </tr>
+            
+            <tr>
+                <th>Name Servers</th>
+                <td><ul><li>ELLIOTT.NS.CLOUDFLARE.COM</li><li>HERA.NS.CLOUDFLARE.COM</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Status</th>
+                <td><ul><li>clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited</li><li>clientTransferProhibited https://icann.org/epp#clientTransferProhibited</li><li>clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Emails</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Dnssec</th>
+                <td>signedDelegation</td>
+            </tr>
+            
+            <tr>
+                <th>Name</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Org</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Address</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>City</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>State</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Registrant Postal Code</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Country</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Tech Name</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Tech Org</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Admin Name</th>
+                <td>Not available</td>
+            </tr>
+            
+            <tr>
+                <th>Admin Org</th>
+                <td>Not available</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>5. IP Address &amp; Geolocation</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Ip Address</th>
+                <td>104.20.23.154</td>
+            </tr>
+            
+            <tr>
+                <th>Geolocation</th>
+                <td>
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Ip</th>
+                <td>104.20.23.154</td>
+            </tr>
+            
+            <tr>
+                <th>City</th>
+                <td>San Francisco</td>
+            </tr>
+            
+            <tr>
+                <th>Region</th>
+                <td>California</td>
+            </tr>
+            
+            <tr>
+                <th>Country</th>
+                <td>US</td>
+            </tr>
+            
+            <tr>
+                <th>Loc</th>
+                <td>37.7621,-122.3971</td>
+            </tr>
+            
+            <tr>
+                <th>Org</th>
+                <td>AS13335 Cloudflare, Inc.</td>
+            </tr>
+            
+            <tr>
+                <th>Postal</th>
+                <td>94107</td>
+            </tr>
+            
+            <tr>
+                <th>Timezone</th>
+                <td>America/Los_Angeles</td>
+            </tr>
+            
+            <tr>
+                <th>Readme</th>
+                <td>https://ipinfo.io/missingauth</td>
+            </tr>
+            
+            <tr>
+                <th>Anycast</th>
+                <td>True</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        </td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>6. HTTP Response Information</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Url</th>
+                <td>https://example.com/</td>
+            </tr>
+            
+            <tr>
+                <th>Status Code</th>
+                <td>200</td>
+            </tr>
+            
+            <tr>
+                <th>Headers</th>
+                <td>
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Date</th>
+                <td>Sun, 16 Aug 2026 10:19:16 GMT</td>
+            </tr>
+            
+            <tr>
+                <th>Content-Type</th>
+                <td>text/html</td>
+            </tr>
+            
+            <tr>
+                <th>Transfer-Encoding</th>
+                <td>chunked</td>
+            </tr>
+            
+            <tr>
+                <th>Connection</th>
+                <td>keep-alive</td>
+            </tr>
+            
+            <tr>
+                <th>Server</th>
+                <td>cloudflare</td>
+            </tr>
+            
+            <tr>
+                <th>Last-Modified</th>
+                <td>Wed, 12 Aug 2026 20:15:57 GMT</td>
+            </tr>
+            
+            <tr>
+                <th>Allow</th>
+                <td>GET, HEAD</td>
+            </tr>
+            
+            <tr>
+                <th>Age</th>
+                <td>14350</td>
+            </tr>
+            
+            <tr>
+                <th>Cf-Cache-Status</th>
+                <td>HIT</td>
+            </tr>
+            
+            <tr>
+                <th>Content-Encoding</th>
+                <td>gzip</td>
+            </tr>
+            
+            <tr>
+                <th>Cf-Ray</th>
+                <td>a2bfb3212fcd7527-DUS</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        </td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>7. SSL/TLS Information</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Certificate</th>
+                <td>
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Subject</th>
+                <td><ul><li>((&#x27;commonName&#x27;, &#x27;example.com&#x27;),)</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Issuer</th>
+                <td><ul><li>((&#x27;countryName&#x27;, &#x27;US&#x27;),)</li><li>((&#x27;organizationName&#x27;, &#x27;SSL Corporation&#x27;),)</li><li>((&#x27;commonName&#x27;, &#x27;Cloudflare TLS Issuing ECC CA 3&#x27;),)</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Version</th>
+                <td>3</td>
+            </tr>
+            
+            <tr>
+                <th>Serialnumber</th>
+                <td>0624D0AB311558780B7D5213B9631831</td>
+            </tr>
+            
+            <tr>
+                <th>Notbefore</th>
+                <td>Jul 29 22:10:08 2026 GMT</td>
+            </tr>
+            
+            <tr>
+                <th>Notafter</th>
+                <td>Oct 27 22:17:21 2026 GMT</td>
+            </tr>
+            
+            <tr>
+                <th>Subjectaltname</th>
+                <td><ul><li>(&#x27;DNS&#x27;, &#x27;example.com&#x27;)</li><li>(&#x27;DNS&#x27;, &#x27;*.example.com&#x27;)</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Ocsp</th>
+                <td><ul><li>http://o.cf-i.ssl.com</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Caissuers</th>
+                <td><ul><li>http://i.cf-i.ssl.com/Cloudflare-TLS-I-E3.cer</li></ul></td>
+            </tr>
+            
+            <tr>
+                <th>Crldistributionpoints</th>
+                <td><ul><li>http://c.cf-i.ssl.com/ae801ed1c55bb579d79208b0d772acfb8cc3a208.crl</li></ul></td>
+            </tr>
+            
+            </tbody>
+        </table>
+        </td>
+            </tr>
+            
+            <tr>
+                <th>Tls Version</th>
+                <td>TLSv1.3</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>8. Technology Detection</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Final Url</th>
+                <td>https://example.com/</td>
+            </tr>
+            
+            <tr>
+                <th>Status Code</th>
+                <td>200</td>
+            </tr>
+            
+            <tr>
+                <th>Technologies</th>
+                <td>
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Server</th>
+                <td>cloudflare</td>
+            </tr>
+            
+            <tr>
+                <th>Content-Type</th>
+                <td>text/html</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        </td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+
+    <section>
+        <h2>9. Subdomain Enumeration</h2>
+        <ul><li>dev.example.com</li><li>example.com</li><li>m.example.com</li><li>products.example.com</li><li>support.example.com</li><li>www.example.com</li></ul>
+    </section>
+    
+
+
+
+    <section>
+        <h2>10. robots.txt</h2>
+        
+        <table>
+            <tbody>
+                
+            <tr>
+                <th>Url</th>
+                <td>https://example.com/robots.txt</td>
+            </tr>
+            
+            <tr>
+                <th>Status Code</th>
+                <td>404</td>
+            </tr>
+            
+            <tr>
+                <th>Content</th>
+                <td>&lt;!doctype html&gt;&lt;html lang=&quot;en&quot;&gt;&lt;head&gt;&lt;title&gt;Example Domain&lt;/title&gt;&lt;link rel=&quot;icon&quot; href=&quot;data:,&quot;&gt;&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;&lt;style&gt;body{background:#eee;width:60vw;margin:15vh auto;font-family:system-ui,sans-serif}h1{font-size:1.5em}div{opacity:0.8}a:link,a:visited{color:#348}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;h1&gt;Example Domain&lt;/h1&gt;&lt;p&gt;This domain is for use in documentation examples without needing permission. Avoid use in operations.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://iana.org/domains/example&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;
+</td>
+            </tr>
+            
+            </tbody>
+        </table>
+        
+    </section>
+    
+
+
+<section>
+
+<h2>11. Key Observations</h2>
+
+<div class="observation">
+The target domain resolves to publicly accessible IPv4 and IPv6
+addresses.
+</div>
+
+<div class="observation">
+The DNS infrastructure indicates the use of publicly identifiable
+name servers.
+</div>
+
+<div class="observation">
+The HTTP response exposes publicly observable server and content
+information.
+</div>
+
+<div class="observation">
+The target supports TLS encryption and exposes certificate
+information through the TLS service.
+</div>
+
+<div class="observation">
+Certificate Transparency data may reveal publicly known
+subdomains associated with the target.
+</div>
+
+<div class="observation">
+The reconnaissance results represent publicly observable
+information and should not be interpreted as confirmed
+security vulnerabilities.
+</div>
+
+</section>
+
+
+<section>
+
+<h2>12. Methodology</h2>
+
+<div class="summary">
+
+<p>
+The framework performed passive reconnaissance using publicly
+accessible information sources and standard network protocols.
+</p>
+
+<ul>
+
+<li>DNS record enumeration</li>
+
+<li>WHOIS domain registration lookup</li>
+
+<li>IPv4 resolution and basic geolocation</li>
+
+<li>HTTP response inspection</li>
+
+<li>SSL/TLS certificate inspection</li>
+
+<li>Technology indicator detection</li>
+
+<li>Certificate Transparency subdomain enumeration</li>
+
+<li>robots.txt retrieval</li>
+
+</ul>
+
+<p>
+No exploitation or intrusive vulnerability testing is performed
+by these reconnaissance modules.
+</p>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>13. Limitations</h2>
+
+<ul>
+
+<li>
+The report contains information that was publicly accessible
+during the reconnaissance process.
+</li>
+
+<li>
+Results may change over time as DNS records, certificates,
+web infrastructure, and other public information change.
+</li>
+
+<li>
+Geolocation information may represent hosting infrastructure
+rather than the physical location of the organization.
+</li>
+
+<li>
+Technology detection is based on publicly exposed indicators
+and may not identify all technologies in use.
+</li>
+
+<li>
+Certificate Transparency enumeration does not guarantee that
+all active subdomains have been discovered.
+</li>
+
+<li>
+The presence of information in this report does not by itself
+indicate a security vulnerability.
+</li>
+
+</ul>
+
+</section>
+
+
+<footer>
+
+<strong>Web Recon Automation Framework</strong><br>
+
+Generated automatically from reconnaissance module results.<br>
+
+This report is intended for authorized reconnaissance and
+security assessment activities.
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>

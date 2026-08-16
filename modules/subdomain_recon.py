@@ -8,13 +8,15 @@ def get_subdomains(target):
 
     url = f"https://crt.sh/?q=%25.{target}&output=json"
 
+    headers = {
+        "User-Agent": "Web-Recon-Automation-Framework/1.0"
+    }
+
     try:
         response = requests.get(
             url,
-            timeout=15,
-            headers={
-                "User-Agent": "Web-Recon-Automation-Framework/1.0"
-            }
+            timeout=60,
+            headers=headers
         )
 
         response.raise_for_status()
@@ -36,25 +38,32 @@ def get_subdomains(target):
 
         return sorted(subdomains)
 
+    except requests.Timeout:
+        print("[!] Certificate Transparency request timed out.")
+        return []
+
+    except requests.HTTPError as error:
+        print(f"[!] Certificate Transparency HTTP error: {error}")
+        return []
+
+    except requests.ConnectionError as error:
+        print(f"[!] Certificate Transparency connection error: {error}")
+        return []
+
     except requests.RequestException as error:
         print(f"[!] Certificate Transparency request failed: {error}")
-        return None
+        return []
 
     except ValueError:
         print("[!] Could not parse Certificate Transparency response.")
-        return None
+        return []
 
 
 def display_results(subdomains):
     print("\n========== SUBDOMAIN RESULTS ==========")
 
-    if subdomains is None:
-        print("Subdomain enumeration failed.")
-        print("Certificate Transparency data could not be retrieved.")
-        return
-
     if not subdomains:
-        print("No subdomains found.")
+        print("No subdomains found or Certificate Transparency data unavailable.")
         return
 
     print(f"\nSubdomains Found: {len(subdomains)}")
